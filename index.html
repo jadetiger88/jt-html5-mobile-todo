@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<title>Mobile Todo List</title>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div data-role="page" id="home">
+			<header data-role="header">
+				<h1>Mobile Todo</h1>
+			</header>
+			<section data-role="content">
+				<p><a href="#add" data-role="button">Add A Todo</a></p>
+				<p><a href="index.html" data-ajax="false" id="clearButton" data-role="button" data-theme="b">Clear All Todos</a></p>
+				<ul id="todos" data-role="listview" data-filter="true" data-filter-placeholder="Search Todos..." data-inset="true">
+				</ul>
+			</section>
+			<footer data-role="footer" id="footer">
+				<h4>Copyright &copy; Jade Tiger 2015</h4>
+			</footer>
+		</div>
+
+		<div data-role="page" id="add">
+			<header data-role="header">
+				<a href="#home" id="cancelButton", data-icon="delete">Cancel</a>
+				<h1>Add</h1>
+				<a href="index.html" data-ajax="false" id="savelButton", data-icon="check" data-theme="b" onclick='$("#addForm").submit();'>Save</a>
+			</header>
+			<section data-role="content">
+				<form id="addForm">
+					<input type="text" id="addName" name="addName" placeholder="Add Todo...">
+					<input type="date" id="addDate" name="addDate">
+				</form>
+			</section>
+			<footer data-role="footer" id="footer">
+				<h4>Copyright &copy; Jade Tiger 2015</h4>
+			</footer>
+		</div>
+		<div data-role="page" id="edit">
+			<header data-role="header">
+				<a href="#home" id="cancelButton", data-icon="delete">Cancel</a>
+				<h1>Edit</h1>
+				<a href="index.html"  data-ajax="false" id="updateButton", data-icon="check" data-theme="b" onclick='$("#editForm").submit();'>Update</a>
+			</header>
+			<section data-role="content">
+				<form id="editForm">
+					<input type="text" id="editName" name="editName" placeholder="Add Todo...">
+					<input type="date" id="editDate" name="editDate">
+					<a href="index.html"  data-ajax="false"  id="delete" data-role=button>Delete</a>
+				</form>
+			</section>
+			<footer data-role="footer" id="footer">
+				<h4>Copyright &copy; Jade Tiger 2015</h4>
+			</footer>
+		</div>
+
+	</body>
+</html>
