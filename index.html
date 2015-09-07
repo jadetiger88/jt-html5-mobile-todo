@@ -17,7 +17,7 @@
 			</header>
 			<section data-role="content">
 				<p><a href="#add" data-role="button">Add A Todo</a></p>
-				<p><a href="index.html" data-ajax="false" id="clearButton" data-role="button" data-theme="b">Clear All Todos</a></p>
+				<p><a href="#home"  data-ajax="false" id="clearButton" data-role="button" data-theme="b">Clear All Todos</a></p>
 				<ul id="todos" data-role="listview" data-filter="true" data-filter-placeholder="Search Todos..." data-inset="true">
 				</ul>
 			</section>
@@ -28,9 +28,9 @@
 
 		<div data-role="page" id="add">
 			<header data-role="header">
-				<a href="index.html" data-ajax="false" id="cancelButton", data-icon="delete">Cancel</a>
+				<a href="i#home"  id="addCancelButton", data-icon="delete">Cancel</a>
 				<h1>Add</h1>
-				<a href="index.html" data-ajax="false" id="savelButton", data-icon="check" data-theme="b" onclick='$("#addForm").submit();'>Save</a>
+				<a href="#home"  id="savelButton", data-icon="check" data-theme="b" onclick='$("#addForm").submit();'>Save</a>
 			</header>
 			<section data-role="content">
 				<form id="addForm">
@@ -44,15 +44,15 @@
 		</div>
 		<div data-role="page" id="edit">
 			<header data-role="header">
-				<a href="index.html" data-ajax="false" id="cancelButton", data-icon="delete">Cancel</a>
+				<a href="#home"  id="editCancelButton", data-icon="delete">Cancel</a>
 				<h1>Edit</h1>
-				<a href="index.html"  data-ajax="false" id="updateButton", data-icon="check" data-theme="b" onclick='$("#editForm").submit();'>Update</a>
+				<a href="#home"   id="updateButton", data-icon="check" data-theme="b" onclick='$("#editForm").submit();'>Update</a>
 			</header>
 			<section data-role="content">
 				<form id="editForm">
 					<input type="text" id="editName" name="editName" placeholder="Add Todo...">
 					<input type="date" id="editDate" name="editDate">
-					<a href="index.html"  data-ajax="false"  id="delete" data-role=button>Delete</a>
+					<a href="#home"  data-ajax="false"  id="delete" data-role=button>Delete</a>
 				</form>
 			</section>
 			<footer data-role="footer" id="footer">

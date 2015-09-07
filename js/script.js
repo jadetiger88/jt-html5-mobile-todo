@@ -2,7 +2,9 @@ var list = [];
 var currentObj = {}; 
 
 
-$(document).on('pageshow', '#home', refreshTodoList); 
+$(document).on('pageshow', '#home', function() {
+	refreshTodoList();
+}); 
 
 $(document).ready(function(){
 
@@ -10,9 +12,10 @@ $(document).ready(function(){
 
 	$("#addForm").submit(function() {
 
-	    Obj = { "name": $("#addName").val(), 
-				"date": $("#addDate").val()}; 
+	    Obj = {"name": $("#addName").val(), "date": $("#addDate").val()}; 
 		addTodo(Obj); 
+		$("#addName").val("");
+		$("#addDate").val("");
 		return false; 
 	})
 
@@ -29,12 +32,19 @@ $(document).ready(function(){
 		return false;
 	})
 
+	$("#addCancelButton").click(function() {
+		$("#addName").val("");
+		$("#addDate").val("");
+	})
+
 	$("#clearButton").click(function() {
 		localStorage.clear(); 
 		list = [];
+		refreshTodoList();
 	});
 
-    $('.todoLinks').click(function() {
+    // $('.todoLinks').click(function() {
+	$('#todos').on('click','.todoLinks',function(){
      	$("input[name=editName]").val($(this).data("todoname")); 
     	$("input[name=editDate]").val($(this).data("tododate")); 
 	    currentObj = { "name":  $("input[name=editName]").val(), 
