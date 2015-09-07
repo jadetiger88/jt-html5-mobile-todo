@@ -1,9 +1,12 @@
 var list = []; 
 var currentObj = {}; 
 
+
+$(document).on('pageshow', '#home', refreshTodoList); 
+
 $(document).ready(function(){
 
-	refreshTodoList(); 
+	// refreshTodoList(); 
 
 	$("#addForm").submit(function() {
 
@@ -46,6 +49,8 @@ $(document).ready(function(){
 
 function refreshTodoList() {
 	var i = 0; 
+
+	$('#todos li').remove(); 
 	list = JSON.parse(localStorage.getItem("todoList")); 
 	if (list != null) {
 		$.each(list, function(key, value) {
