@@ -13,9 +13,10 @@ $(document).ready(function(){
 	$("#addForm").submit(function() {
 
 	    Obj = {"name": $("#addName").val(), "date": $("#addDate").val()}; 
-		addTodo(Obj); 
-		$("#addName").val("");
-		$("#addDate").val("");
+		if (addTodo(Obj)) { 
+			$("#addName").val("");
+			$("#addDate").val("");
+		}
 		return false; 
 	})
 
@@ -94,6 +95,7 @@ function addTodo(obj) {
 
 		list.push(obj); 
 		localStorage.setItem("todoList", JSON.stringify(list));
+		return true; 
 }
 
 function deleteTodo(obj) {
