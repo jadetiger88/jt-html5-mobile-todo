@@ -7,12 +7,8 @@ $(document).ready(function(){
 
 	$("#addForm").submit(function() {
 
-		var name = $("#addName").val(); 
-		var date = $("#addDate").val(); 
-
 	    Obj = { "name": $("#addName").val(), 
 				"date": $("#addDate").val()}; 
-
 		addTodo(Obj); 
 		return false; 
 	})
@@ -22,12 +18,10 @@ $(document).ready(function(){
 	    newObj = { "name": $("#editName").val(), 
 				   "date": $("#editDate").val()}; 
 
-		if (JSON.stringify(newObj) == JSON.stringify(currentObj)) {
-			return false;
+		if (JSON.stringify(newObj) != JSON.stringify(currentObj)) {
+			deleteTodo(currentObj);
+			addTodo(newObj); 
 		}
-
-		deleteTodo(currentObj);
-		addTodo(newObj); 
 
 		return false;
 	})
@@ -67,9 +61,6 @@ function refreshTodoList() {
 }
 
 function addTodo(obj) {
-		// var name = $("#addName").val(); 
-		// var date = $("#addDate").val(); 
-
 		if (obj.name == "") {
 			alert("Please enter a title for the todo")
 			return false;
@@ -80,14 +71,13 @@ function addTodo(obj) {
 			return false; 
 		}
 
-		var todoList = JSON.parse(localStorage.getItem("todoList")); 
-		if (todoList == null) {
-			todoList = [];
+		if (list == null) {
+			list = [];
 		}
 
 
-		todoList.push(obj); 
-		localStorage.setItem("todoList", JSON.stringify(todoList));
+		list.push(obj); 
+		localStorage.setItem("todoList", JSON.stringify(list));
 }
 
 function deleteTodo(obj) {
