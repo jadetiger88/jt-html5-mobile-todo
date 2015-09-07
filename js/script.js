@@ -58,7 +58,8 @@ function refreshTodoList() {
 								'"><a class="todoLinks" href="#edit" data-todoName="' + value.name +
 								'" data-todoDate="' + value.date + 
 								'">' + value.name + 
-								'</a></li>');
+								'<span>' + value.date + 
+								'</span></a></li>');
 			i++
 		})
 		$('#todos').listview("refresh");
